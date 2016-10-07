@@ -25,13 +25,12 @@ public class ChannelAdapter extends RecyclerView.Adapter<ChannelAdapter.ViewHold
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView channelName, numOfPersonInChannel, nameOfProfessor;
+        public TextView channelName, nameOfProfessor;
         public Button enterButton;
 
         public ViewHolder(View itemView) {
             super(itemView);
             channelName = (TextView) itemView.findViewById(R.id.channelName);
-            numOfPersonInChannel = (TextView) itemView.findViewById(R.id.numOfUserInChannel);
             nameOfProfessor = (TextView) itemView.findViewById(R.id.nameOfProfessor);
         }
     }
@@ -45,7 +44,6 @@ public class ChannelAdapter extends RecyclerView.Adapter<ChannelAdapter.ViewHold
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         final Channel channel = channelList.get(position);
-        holder.numOfPersonInChannel.setText(holder.numOfPersonInChannel.getText() +" "+ new Integer(channel.getNumOfPersonInChannel()).toString());
         holder.channelName.setText(channel.getChannelName());
         holder.nameOfProfessor.setText(channel.getProfessorName());
     }

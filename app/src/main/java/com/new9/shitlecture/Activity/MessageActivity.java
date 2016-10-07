@@ -54,7 +54,6 @@ public class MessageActivity extends AppCompatActivity {
         channelString = (String) myChannel.getText();
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        numOfPerson = (TextView) findViewById(R.id.numOfUser);
 
         mAdapter = new MessageAdapter(messageList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());

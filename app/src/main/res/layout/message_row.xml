@@ -17,7 +17,7 @@
             android:layout_weight="0.3"
             android:layout_height="wrap_content"
             android:text="name"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorBottomLine"
             android:textSize="15dp"/>
 
         <TextView
