@@ -46,7 +46,8 @@ public class MessageActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         client = (Client) intent.getSerializableExtra("CLIENT");
-
+        myChannel = (TextView) findViewById(R.id.thisChannelName);
+        myChannel.setText(User.getSelectedChannel());
 
 
         recyclerView=(RecyclerView)findViewById(R.id.recycler_view);
