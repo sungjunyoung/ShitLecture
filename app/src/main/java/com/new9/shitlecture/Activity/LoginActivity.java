@@ -41,8 +41,6 @@ public class LoginActivity extends AppCompatActivity implements Serializable{
 
         if (loginValidation(id, pw)) {
             System.out.print("**HELLO");
-            client.getClientUser().setId(id);
-            client.getClientUser().setPw(pw);
 
             Intent intent = new Intent(getApplicationContext(), ChannelActivity.class);
             intent.putExtra("CLIENT",client);

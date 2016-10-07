@@ -49,21 +49,13 @@ public class Client implements Serializable {
     }
 
 
-    private User clientUser;
     final private String loginURL = "http://52.78.190.59/index.php/server/login";
 
-    public User getClientUser() {
-        return clientUser;
-    }
-
-    public void setClientUser(User clientUser) {
-        this.clientUser = clientUser;
-    }
 
     public boolean postLoginData(String id, String pw) {
 
-        clientUser.setId(id);
-        clientUser.setPw(pw);
+        User.setId(id);
+        User.setPw(pw);
         try {
             HttpClient httpClient = new DefaultHttpClient();
             List<NameValuePair> qparams = new ArrayList<NameValuePair>();
@@ -78,14 +70,9 @@ public class Client implements Serializable {
             Log.d("tag", response.toString());
 
             if (response != null) {
-                /*
-                String temp = EntityUtils.toString(response.getEntity());
-                JSONObject tempObject = new JSONObject(temp);
 
-                Map<String, Object> tempMap = new Gson().fromJson(temp, new TypeToken<HashMap<String, Object>>() {}.getType());
-                String name = tempMap.get("name").toString();
-                HashMap<String,ArrayList<LinkedTreeMap<String,String>>> l = (HashMap<String,ArrayList<LinkedTreeMap<String,String>>>)tempMap.get("lectures");
-                */
+                String temp = EntityUtils.toString(response.getEntity());
+                setCurUser(temp);
                 //Map<String,Object> tempMap= jsonToMap(tempObject);
                 //System.out.print(temp.get());
                 return true;
@@ -96,6 +83,8 @@ public class Client implements Serializable {
         } catch (ClientProtocolException e) {
             e.printStackTrace();
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
             e.printStackTrace();
         }
         return false;
@@ -125,5 +114,16 @@ public class Client implements Serializable {
         }
         return map;
     }
+    public void setCurUser(String temp) throws JSONException { //EntityUtils.toString(response.getEntity());
+        JSONObject tempObject = new JSONObject(temp);
 
+        Map<String, Object> tempMap = new Gson().fromJson(temp, new TypeToken<HashMap<String, Object>>() {}.getType());
+        String name = tempMap.get("name").toString();
+        ArrayList<LinkedTreeMap<String,String>> tempArray = (ArrayList<LinkedTreeMap<String,String>>)tempMap.get("lectures");
+        for(int i=0;i<tempArray.size();i++){
+            LinkedTreeMap<String,String> tempLinkedTreeMap = tempArray.get(i);
+            Channel tempChannel = new Channel(tempLinkedTreeMap.get("lecture"),tempLinkedTreeMap.get("professor"));
+            User.addChannel(tempChannel);
+        }
+    }
 }
