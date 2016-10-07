@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.new9.shitlecture.Activity.ChannelActivity;
 import com.new9.shitlecture.Java.Channel;
 import com.new9.shitlecture.Java.User;
 import com.new9.shitlecture.R;
@@ -32,8 +33,6 @@ public class ChannelAdapter extends RecyclerView.Adapter<ChannelAdapter.ViewHold
             channelName = (TextView) itemView.findViewById(R.id.channelName);
             numOfPersonInChannel = (TextView) itemView.findViewById(R.id.numOfUserInChannel);
             nameOfProfessor = (TextView) itemView.findViewById(R.id.nameOfProfessor);
-            enterButton = (Button) itemView.findViewById(R.id.buttonEnter);
-
         }
     }
 
@@ -49,13 +48,6 @@ public class ChannelAdapter extends RecyclerView.Adapter<ChannelAdapter.ViewHold
         holder.numOfPersonInChannel.setText(holder.numOfPersonInChannel.getText() +" "+ new Integer(channel.getNumOfPersonInChannel()).toString());
         holder.channelName.setText(channel.getChannelName());
         holder.nameOfProfessor.setText(channel.getProfessorName());
-        channel.setEnterChannel(holder.enterButton);
-        holder.enterButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                User.setSelectedChannel(channel.getChannelName());
-            }
-        });
     }
 
     @Override

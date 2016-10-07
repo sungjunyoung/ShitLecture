@@ -24,7 +24,7 @@ public class MessageActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private MessageAdapter mAdapter;
     private TextView myChannel;
-
+    private TextView numOfPerson;
     private Client client = null;
 
     @Override
@@ -36,7 +36,8 @@ public class MessageActivity extends AppCompatActivity {
         client = (Client) intent.getSerializableExtra("CLIENT");
         myChannel = (TextView) findViewById(R.id.thisChannelName);
         myChannel.setText(User.getSelectedChannel());
-
+        numOfPerson = (TextView) findViewById(R.id.numOfUser);
+        //numOfPerson.setText(numOfPerson.getText() + " " + );
 
         recyclerView=(RecyclerView)findViewById(R.id.recycler_view);
 

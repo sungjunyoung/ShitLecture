@@ -13,7 +13,6 @@ public class Channel implements Serializable{
 
     private String professorName;
     private int numOfPersonInChannel;
-    private Button enterChannel;
 
 
     public String getChannelName() {
@@ -24,9 +23,6 @@ public class Channel implements Serializable{
         this.channelName = channelName;
     }
 
-    public Button getEnterChannel() {
-        return enterChannel;
-    }
 
     public String getProfessorName() {
         return professorName;
@@ -34,9 +30,6 @@ public class Channel implements Serializable{
 
     public void setProfessorName(String professorName) {
         this.professorName = professorName;
-    }
-    public void setEnterChannel(Button enterChannel) {
-        this.enterChannel = enterChannel;
     }
     public int getNumOfPersonInChannel() {
         return numOfPersonInChannel;
