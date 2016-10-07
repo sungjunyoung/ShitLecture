@@ -71,7 +71,6 @@ public class ChannelActivity extends AppCompatActivity implements Serializable {
                 })
         );
     }
-<<<<<<< HEAD
 
 
    public void goInChannel(View view){
@@ -79,9 +78,6 @@ public class ChannelActivity extends AppCompatActivity implements Serializable {
        intent.putExtra("CLIENT",client);
        startActivity(intent);
    }
-=======
->>>>>>> feba93ba6b9ce8299aa5c6a2c27b7053eb9a8161
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
