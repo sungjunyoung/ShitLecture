@@ -27,15 +27,12 @@ public class ChannelActivity extends AppCompatActivity implements Serializable{
     private TextView idTextView;
     private TextView nameTextView;
     private Client client = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_channel);
-
-        channelList.clear();
         channelList = User.getChannelList();
-
-
 
         Intent intent = getIntent();
         client = (Client) intent.getSerializableExtra("CLIENT");
@@ -56,6 +53,11 @@ public class ChannelActivity extends AppCompatActivity implements Serializable{
        startActivity(intent);
    }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        User.getChannelList().clear();
+    }
 }
 /*
         Intent intent = new Intent(getApplicationContext(), MessageActivity.class);

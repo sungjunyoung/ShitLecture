@@ -13,6 +13,15 @@ final public class User implements Serializable{
     static private String id;
     static private String pw;
 
+    public static String getSelectedChannel() {
+        return selectedChannel;
+    }
+
+    public static void setSelectedChannel(String selectedChannel) {
+        User.selectedChannel = selectedChannel;
+    }
+
+    static private String selectedChannel =null;
     static private String name;
     static private List<Channel> channelList = new ArrayList<>();
 

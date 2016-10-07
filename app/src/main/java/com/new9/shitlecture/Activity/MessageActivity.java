@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.new9.shitlecture.Adapter.MessageAdapter;
 import com.new9.shitlecture.Java.Client;
 import com.new9.shitlecture.Java.Message;
+import com.new9.shitlecture.Java.User;
 import com.new9.shitlecture.R;
 
 import java.util.ArrayList;
@@ -33,7 +34,8 @@ public class MessageActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         client = (Client) intent.getSerializableExtra("CLIENT");
-
+        myChannel = (TextView) findViewById(R.id.thisChannelName);
+        myChannel.setText(User.getSelectedChannel());
 
 
         recyclerView=(RecyclerView)findViewById(R.id.recycler_view);
