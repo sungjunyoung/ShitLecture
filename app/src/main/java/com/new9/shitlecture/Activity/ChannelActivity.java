@@ -91,7 +91,6 @@ class RecyclerItemClickListener implements RecyclerView.OnItemTouchListener {
 
     public interface OnItemClickListener {
         public void onItemClick(View view, int position);
-
         public void onLongItemClick(View view, int position);
     }
 
@@ -122,8 +121,3 @@ class RecyclerItemClickListener implements RecyclerView.OnItemTouchListener {
     @Override
     public void onRequestDisallowInterceptTouchEvent (boolean disallowIntercept){}
 }
-/*
-        Intent intent = new Intent(getApplicationContext(), MessageActivity.class);
-        intent.putExtra("CLIENT",client);
-        startActivity(intent);
- */

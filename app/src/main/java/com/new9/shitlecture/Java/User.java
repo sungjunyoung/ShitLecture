@@ -14,6 +14,7 @@ final public class User implements Serializable{
     static private String pw;
     static private String selectedChannel =null;
     static private String name;
+    static private String nick;
     static private List<Channel> channelList = new ArrayList<>();
 
     public static String getSelectedChannel() {
@@ -70,4 +71,11 @@ final public class User implements Serializable{
         User.pw = pw;
     }
 
+    public static String getNick() {
+        return nick;
+    }
+
+    public static void setNick(String nick) {
+        User.nick = nick;
+    }
 }

@@ -1,5 +1,6 @@
 package com.new9.shitlecture.Adapter;
 
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,7 +43,12 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
     public void onBindViewHolder(ViewHolder holder, int position) {
         Message message = messageList.get(position);
         holder.name.setText(message.getName());
+
+
         holder.content.setText(message.getContent());
+        if(message.getContent().contains("#")){
+            holder.content.setTextColor(Color.RED);
+        }
     }
 
     @Override

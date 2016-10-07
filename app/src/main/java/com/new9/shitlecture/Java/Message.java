@@ -6,11 +6,11 @@ package com.new9.shitlecture.Java;
 
 public class Message {
     private String name;
+    private String content;
+
 
     public Message() {
     }
-
-    private String content;
 
     public Message(String name, String content) {
         this.name = name;
