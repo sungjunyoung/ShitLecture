@@ -125,7 +125,8 @@ public class Client implements Serializable {
         ArrayList<LinkedTreeMap<String, String>> tempArray = (ArrayList<LinkedTreeMap<String, String>>) tempMap.get("lectures");
         for (int i = 0; i < tempArray.size(); i++) {
             LinkedTreeMap<String, String> tempLinkedTreeMap = tempArray.get(i);
-            Channel tempChannel = new Channel(tempLinkedTreeMap.get("lecture"), tempLinkedTreeMap.get("professor"));
+            String lectureParsing = tempLinkedTreeMap.get("lecture");
+            Channel tempChannel = new Channel(lectureParsing.substring(0,lectureParsing.indexOf('[')), tempLinkedTreeMap.get("professor"));
             User.addChannel(tempChannel);
         }
     }
