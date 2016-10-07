@@ -13,9 +13,24 @@
 
     <TextView
         android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/main"
+        android:textSize="60dp"
+        android:text="쉿! 강의중"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="40dp"
+
+        android:layout_above="@+id/login"
+        android:layout_alignLeft="@+id/login"
+        android:layout_alignStart="@+id/login" />
+
+    <TextView
+        android:layout_width="280dp"
         android:layout_height="50dp"
         android:id="@+id/login"
         android:textSize="20dp"
+        android:gravity="center"
         android:text="종합정보시스템의 학번, 비밀번호를 입력해주세요."
 
         android:layout_above="@+id/idEditText"
@@ -75,7 +90,7 @@
         android:textColor="#000000" />
 
     <TextView
-        android:text="※입력하신 개인정보는 저장되지 않습니다."
+        android:text="※ 입력하신 개인정보는 절대 저장되지 않습니다."
         android:layout_marginTop="40dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

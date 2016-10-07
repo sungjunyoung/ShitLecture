@@ -100,7 +100,7 @@ public class MessageActivity extends AppCompatActivity {
                         TextView tv = (TextView) view.findViewById(R.id.content);
                         if(tv.getText().toString().contains("#")){
 
-                            User.setSelectedChannel("익명이랑");
+                            User.setSelectedChannel("그녀/그");
 
                             Intent intent = new Intent(getApplicationContext(), MessageActivity.class);
 

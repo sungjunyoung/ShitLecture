@@ -67,7 +67,7 @@
             android:layout_width="0dp"
             android:backgroundTint="@color/colorBottomLine"
             android:layout_height="wrap_content"
-            android:layout_weight="0.75" />
+            android:layout_weight="0.7" />
 
         <Button
 
@@ -76,7 +76,7 @@
             android:layout_width="0dp"
             android:textSize="17dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.25"
+            android:layout_weight="0.3"
             android:onClick="clickSubmit"
             android:text="전송하기" />
     </LinearLayout>

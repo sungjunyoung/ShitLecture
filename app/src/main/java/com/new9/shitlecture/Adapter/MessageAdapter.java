@@ -47,7 +47,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
 
         holder.content.setText(message.getContent());
         if(message.getContent().contains("#")){
-            holder.content.setTextColor(Color.RED);
+            holder.content.setTextColor(Color.GRAY);
         }
     }
 
