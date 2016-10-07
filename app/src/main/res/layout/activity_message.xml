@@ -39,14 +39,6 @@
                 android:textAlignment="viewEnd"
                 android:textSize="15dp" />
 
-            <TextView
-                android:id="@+id/numOfUser"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:text="인원: "
-                android:textAlignment="viewEnd"
-                android:textSize="15dp" />
         </LinearLayout>
     </LinearLayout>
 
@@ -64,6 +56,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -72,16 +65,20 @@
         <EditText
             android:id="@+id/messageSend"
             android:layout_width="0dp"
+            android:backgroundTint="@color/colorBottomLine"
             android:layout_height="wrap_content"
-            android:layout_weight="0.8" />
+            android:layout_weight="0.75" />
 
         <Button
+
             android:id="@+id/sendButton"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="0dp"
+            android:textSize="17dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.2"
+            android:layout_weight="0.25"
             android:onClick="clickSubmit"
-            android:text="전송" />
+            android:text="전송하기" />
     </LinearLayout>
 
 </LinearLayout>

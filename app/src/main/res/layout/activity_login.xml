@@ -8,18 +8,31 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/bg"
     tools:context="com.new9.shitlecture.Activity.LoginActivity">
 
+    <TextView
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:id="@+id/login"
+        android:textSize="20dp"
+        android:text="종합정보시스템의 학번, 비밀번호를 입력해주세요."
+
+        android:layout_above="@+id/idEditText"
+        android:layout_alignLeft="@+id/idEditText"
+        android:layout_alignStart="@+id/idEditText" />
     <EditText
         android:id="@+id/idEditText"
         android:layout_width="280dp"
         android:layout_height="50dp"
+        android:layout_marginTop="30dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+        android:backgroundTint="@color/colorBottomLine"
         android:hint="ID"
-        android:text="2014104128"
         android:textColor="#000000"
-        android:textColorHint="@color/dim_foreground_disabled_material_light" />
+        android:textColorHint="@color/dim_foreground_disabled_material_light"
+        android:textColorLink="@color/colorBottomLine" />
 
     <EditText
         android:id="@+id/pwEditText"
@@ -27,8 +40,8 @@
         android:layout_height="50dp"
         android:layout_alignLeft="@id/idEditText"
         android:layout_below="@id/idEditText"
+        android:backgroundTint="@color/colorBottomLine"
         android:hint="PASSWORD"
-        android:text="139dkssud!"
         android:textColor="#000000"
         android:textColorHint="@color/dim_foreground_disabled_material_light" />
 
@@ -42,6 +55,7 @@
         android:background="#00ff0000"
         android:onClick="loginClicked"
         android:text="Log in"
+        android:textSize="17dp"
         android:textAllCaps="true"
         android:textColor="#000000" />
 
@@ -56,7 +70,19 @@
         android:background="#00ff0000"
         android:onClick="signUpClicked"
         android:text="Sign up"
+        android:textSize="17dp"
         android:textAllCaps="true"
         android:textColor="#000000" />
+
+    <TextView
+        android:text="※입력하신 개인정보는 저장되지 않습니다."
+        android:layout_marginTop="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/loginButton"
+        android:layout_alignLeft="@+id/loginButton"
+        android:layout_alignStart="@+id/loginButton"
+        android:id="@+id/textView" />
+
 
 </RelativeLayout>

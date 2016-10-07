@@ -4,15 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:layout_marginTop="40dp"
     tools:context="com.new9.shitlecture.Activity.ChannelActivity"
     >
 
 
 
     <LinearLayout
+        android:background="@drawable/tab"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="73dp"
         android:orientation="horizontal"
         android:weightSum="1">
 
@@ -28,6 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
+                android:textSize="20dp"
                 android:text="channelName" />
             <TextView
                 android:id="@+id/nameOfProfessor"
@@ -45,7 +46,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
-            android:text="인원: "
+            android:text="입장하기"
+            android:gravity="right"
             android:layout_weight="0.3"
             />
     </LinearLayout>
