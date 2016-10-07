@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "986606603303",
+    "firebase_url": "https://shitlecture.firebaseio.com",
+    "project_id": "shitlecture",
+    "storage_bucket": "shitlecture.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:986606603303:android:69424b2d5fd9b4af",
+        "android_client_info": {
+          "package_name": "com.new9.shitlecture"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "986606603303-v2kmg8spb8fbmrvh943di5tg9sl560vm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1WS4SjfYolZ21i19BisLFblSzAM9cEY4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
