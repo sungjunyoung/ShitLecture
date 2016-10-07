@@ -119,6 +119,7 @@ public class Client implements Serializable {
 
         Map<String, Object> tempMap = new Gson().fromJson(temp, new TypeToken<HashMap<String, Object>>() {}.getType());
         String name = tempMap.get("name").toString();
+        User.setName(name);
         ArrayList<LinkedTreeMap<String,String>> tempArray = (ArrayList<LinkedTreeMap<String,String>>)tempMap.get("lectures");
         for(int i=0;i<tempArray.size();i++){
             LinkedTreeMap<String,String> tempLinkedTreeMap = tempArray.get(i);

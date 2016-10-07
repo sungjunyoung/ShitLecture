@@ -35,6 +35,8 @@ public class ChannelActivity extends AppCompatActivity implements Serializable{
         channelList.clear();
         channelList = User.getChannelList();
 
+        idTextView.setText(User.getId());
+        nameTextView.setText(User.getName());
 
         Intent intent = getIntent();
         client = (Client) intent.getSerializableExtra("CLIENT");
