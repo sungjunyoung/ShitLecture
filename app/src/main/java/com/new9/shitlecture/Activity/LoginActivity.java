@@ -30,6 +30,7 @@ public class LoginActivity extends AppCompatActivity implements Serializable{
         PasswordTransformationMethod passwdtm = new PasswordTransformationMethod();
         pwEditText.setTransformationMethod(passwdtm);
     }
+
     public boolean loginValidation(String id, String pw) { //json으로 서버에 post
         if(client.postLoginData(id,pw)) return true;
         else return false;

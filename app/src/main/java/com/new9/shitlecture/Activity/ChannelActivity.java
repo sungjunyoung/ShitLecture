@@ -7,6 +7,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.new9.shitlecture.Adapter.ChannelAdapter;
@@ -28,10 +29,12 @@ public class ChannelActivity extends AppCompatActivity implements Serializable{
     private TextView nameTextView;
     private Client client = null;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_channel);
+
         channelList = User.getChannelList();
 
         Intent intent = getIntent();
@@ -47,6 +50,8 @@ public class ChannelActivity extends AppCompatActivity implements Serializable{
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(channelAdapter);
     }
+
+
    public void goInChannel(View view){
        Intent intent = new Intent(getApplicationContext(), MessageActivity.class);
        intent.putExtra("CLIENT",client);

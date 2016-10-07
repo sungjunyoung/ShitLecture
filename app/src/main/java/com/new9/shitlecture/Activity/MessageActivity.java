@@ -15,6 +15,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.new9.shitlecture.Adapter.MessageAdapter;
 import com.new9.shitlecture.Java.Client;
@@ -28,16 +29,17 @@ import java.util.List;
 public class MessageActivity extends AppCompatActivity {
 
 
-    private List<Message> messageList=new ArrayList<>();
+    private List<Message> messageList = new ArrayList<>();
     private RecyclerView recyclerView;
     private MessageAdapter mAdapter;
     private TextView myChannel;
+    private String channelString;
 
     private FirebaseDatabase database;
     private DatabaseReference myRef;
 
     private Client client = null;
-    
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,28 +50,51 @@ public class MessageActivity extends AppCompatActivity {
         client = (Client) intent.getSerializableExtra("CLIENT");
         myChannel = (TextView) findViewById(R.id.thisChannelName);
         myChannel.setText(User.getSelectedChannel());
+        channelString = (String) myChannel.getText();
 
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 
-        recyclerView=(RecyclerView)findViewById(R.id.recycler_view);
-
-        mAdapter=new MessageAdapter(messageList);
-        RecyclerView.LayoutManager mLayoutManager=new LinearLayoutManager(getApplicationContext());
+        mAdapter = new MessageAdapter(messageList);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
-
-        myChannel=(TextView)findViewById(R.id.thisChannelName);
 
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference("messages");
 
 
-
+        checkChannel();
         prepareMessageData();
     }
 
-    private void checkChannel(String channel) {
+    private void checkChannel() {
 
+        myRef.addValueEventListener(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                boolean check = false;
+                for (DataSnapshot m : snapshot.getChildren()) {
+                    if (m.getKey().equals(channelString)) {
+                        check = true;
+                        break;
+                    } else {
+                        check = false;
+
+                    }
+                }
+
+                if (!check) {
+                    myRef.push().child(channelString);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
     }
 
@@ -83,18 +108,10 @@ public class MessageActivity extends AppCompatActivity {
                 messageList.clear();
 
 
-                for (DataSnapshot child : dataSnapshot.getChildren()) {
-
+                for (DataSnapshot m : dataSnapshot.child(channelString).getChildren()) {
+                    Message message = m.getValue(Message.class);
+                    messageList.add(message);
                 }
-//                    if (child.getKey().equals(User.getChannel())) {
-//                        for (DataSnapshot child2 : child.getChildren()) {
-//
-//                            Message message = child2.getValue(Message.class);
-//                            messageList.add(message);
-//                        }
-//                        break;
-//                    }
-//                }
 
                 mAdapter.notifyDataSetChanged();
                 recyclerView.scrollToPosition(mAdapter.getItemCount() - 1);
@@ -119,13 +136,13 @@ public class MessageActivity extends AppCompatActivity {
     }
 
     private void writeNewUser(String name, String content) {
-        Message msg = new Message(name, content);
-        String channel = User.getChannel();
+        final Message msg = new Message(name, content);
 
-        myRef.child(channel).push().setValue(msg);
-    }
+        myRef.child(channelString).push().setValue(msg);
+
     }
 }
+
 /*
 
 
