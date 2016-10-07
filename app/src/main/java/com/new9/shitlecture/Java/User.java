@@ -1,6 +1,7 @@
 package com.new9.shitlecture.Java;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,7 +14,7 @@ final public class User implements Serializable{
     static private String pw;
 
     static private String name;
-    static private List<Channel> channelList;
+    static private List<Channel> channelList = new ArrayList<>();
 
     public static String getName() {
         return name;

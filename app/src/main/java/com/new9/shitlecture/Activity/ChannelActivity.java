@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.new9.shitlecture.Adapter.ChannelAdapter;
 import com.new9.shitlecture.Java.Channel;
 import com.new9.shitlecture.Java.Client;
+import com.new9.shitlecture.Java.User;
 import com.new9.shitlecture.R;
 
 import java.io.Serializable;
@@ -31,17 +32,9 @@ public class ChannelActivity extends AppCompatActivity implements Serializable{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_channel);
 
-        //Channel Test입니다 Firebase 연동하고 지워주세요
+        channelList.clear();
+        channelList = User.getChannelList();
 
-        channelList.add(new Channel("운영체제","조진성",1));
-        channelList.add(new Channel("설계프로젝트D","이승형",1));
-        channelList.add(new Channel("기초공학설계","이성원",1));
-        channelList.add(new Channel("데이터베이스","정병수",1));
-        channelList.add(new Channel("알고리즘","누구더라",1));
-
-
-
-        //////////////////////////////////////////////////
 
         Intent intent = getIntent();
         client = (Client) intent.getSerializableExtra("CLIENT");
