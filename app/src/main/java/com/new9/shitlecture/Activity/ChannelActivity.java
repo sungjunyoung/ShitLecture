@@ -35,14 +35,14 @@ public class ChannelActivity extends AppCompatActivity implements Serializable{
         channelList.clear();
         channelList = User.getChannelList();
 
-        idTextView.setText(User.getId());
-        nameTextView.setText(User.getName());
+
 
         Intent intent = getIntent();
         client = (Client) intent.getSerializableExtra("CLIENT");
         idTextView = (TextView) findViewById(R.id.id);
         nameTextView = (TextView) findViewById(R.id.name);
-
+        idTextView.setText(User.getId());
+        nameTextView.setText(User.getName());
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         channelAdapter = new ChannelAdapter(channelList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
